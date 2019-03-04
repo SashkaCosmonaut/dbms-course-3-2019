@@ -7,3 +7,11 @@
 1. Сдлать примерную схему БД
 
 ASD ASD ASD ASD ASD ASDASD ASD ASD 
+
+
+
+
+
+
+
+2222222
