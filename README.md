@@ -6,4 +6,4 @@
 1. Разбиться на команды
 1. Сдлать примерную схему БД
 
-QWE QWE QWE QWE QWE QWE QWE 
+ZXCZ ZXC ZXC ZXC ZXC ZXC ZXC ZXC 
