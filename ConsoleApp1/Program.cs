@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConsoleApp1.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,17 +11,32 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            var testArray = new int[] { 1, 2, 3, 4, 5, 6, 7 };
+            var dbs = new List<IDBModel>
+            {
+                new JSONModel(),
+                new CollectionsModel(),
+                new CSVModel()
+            };
 
-            var multiplyedMoreThanFive = testArray
-                .Where(item => item > 5)
-                .Select(item => item * 1000);
+            var newRoom = new Room
+            {
+                Name = "NEW ROOM TO ADD"
+            };
 
-            foreach (var item in multiplyedMoreThanFive)
-                Console.WriteLine(item);
-            
+            foreach (var db in dbs)
+            {
+                db.AddRoom(newRoom);
+            }
 
-            Console.WriteLine("Hello World!");
+            foreach (var db in dbs)
+            {
+                Console.WriteLine(db.Name);
+
+                foreach (var room in db.GetRooms())
+                {
+                    Console.WriteLine(room.Name);
+                }
+            }
         }
     }
 }
