@@ -1,5 +1,17 @@
-[
-  { "Name": "Room1" },
-  { "Name": "Room2" },
-  { "Name": "Room3" }
-]
+{
+  "Rooms": [
+    { "Name": "Room1" },
+    { "Name": "Room2" },
+    { "Name": "Room3" }
+  ],
+  "Users": [
+    {
+      "Login": "Vasya",
+      "Password": "QWE"
+    },
+    {
+      "Login": "Petya",
+      "Password": "ASD"
+    }
+  ]
+}

@@ -47,7 +47,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CollectionsModel.cs" />
-    <Compile Include="CSVModel.cs" />
     <Compile Include="IDBModel.cs" />
     <Compile Include="JSONModel.cs" />
     <Compile Include="Models\Message.cs" />
