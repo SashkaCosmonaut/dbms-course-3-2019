@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Domain\Consumer.cs" />
+    <Compile Include="Domain\Route.cs" />
     <Compile Include="Domain\Supplier.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
