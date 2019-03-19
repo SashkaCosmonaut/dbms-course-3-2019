@@ -1,15 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TransportationProblem
+﻿namespace TransportationProblem
 {
-    class Program
+    /// <summary>
+    /// Класс точки входа в программу.
+    /// </summary>
+    public class Program
     {
-        static void Main(string[] args)
+        /// <summary>
+        /// Функция точки входа в программу.
+        /// </summary>
+        /// <param name="args">Аргументы командной строки.</param>
+        public static void Main(string[] args)
         {
+
         }
     }
 }
