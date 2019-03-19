@@ -8,6 +8,13 @@ namespace TransportationProblem.DBModels
     public interface IDBModel
     {
         /// <summary>
+        /// Инициализировать БД, создать её, если ещё не создана, подключиться, если нужно
+        /// и наполнить данными по умолчанию, если она была создана.
+        /// </summary>
+        /// <returns>True, если операция была выполнена успешно.</returns>
+        bool Init();
+
+        /// <summary>
         /// Получить все имеющиеся в БД задачи.
         /// </summary>
         /// <returns>Массив имеющихся задач.</returns>
