@@ -1,4 +1,8 @@
-﻿using TransportationProblem.Domain;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using TransportationProblem.Domain;
 
 namespace TransportationProblem.DBModels.JSON
 {
@@ -8,6 +12,28 @@ namespace TransportationProblem.DBModels.JSON
     public class JSONModel : IDBModel
     {
         /// <summary>
+        /// Задача по умолчанию, которая создаётся, если БД пуста.
+        /// </summary>
+        protected JSONProblem DefaultProblem { get; set; } = new JSONProblem
+        {
+            Name = "Задача по умолчанию",
+            Suppliers = new[] { 30, 48, 20, 30 },
+            Consumers = new[] { 18, 27, 42, 15, 26 },
+            Costs = new[,]
+            {
+                { 13, 7, 14, 7, 5 },
+                { 11, 8, 12, 6, 8 },
+                { 6, 10, 10, 8, 11 },
+                { 14, 8, 10, 10, 15 }
+            }
+        };
+
+        /// <summary>
+        /// Считываемые из БД задачи.
+        /// </summary>
+        protected List<Problem> Problems = new List<Problem>();
+
+        /// <summary>
         /// Инициализировать БД, создать её, если ещё не создана, подключиться, если нужно
         /// и наполнить данными по умолчанию, если она была создана.
         /// </summary>
@@ -15,6 +41,19 @@ namespace TransportationProblem.DBModels.JSON
         /// <returns>True, если операция была выполнена успешно.</returns>
         public bool Init(string path)
         {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(path)) return false;
+
+                var files = Directory.GetFiles(path, "*.json", SearchOption.AllDirectories);
+
+                if (!files.Any()) return false;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
             return false;
         }
 
