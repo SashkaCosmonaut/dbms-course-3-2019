@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using TransportationProblem.Domain;
@@ -12,26 +11,60 @@ namespace TransportationProblem.DBModels.JSON
     public class JSONModel : IDBModel
     {
         /// <summary>
-        /// Задача по умолчанию, которая создаётся, если БД пуста.
+        /// Сформировать задачу по умолчанию.
         /// </summary>
-        protected JSONProblem DefaultProblem { get; set; } = new JSONProblem
+        /// <returns>Объект со свойствами задачи по умолчанию.</returns>
+        protected Problem GetDefaultProblem()
         {
-            Name = "Задача по умолчанию",
-            Suppliers = new[] { 30, 48, 20, 30 },
-            Consumers = new[] { 18, 27, 42, 15, 26 },
-            Costs = new[,]
+            try
             {
-                { 13, 7, 14, 7, 5 },
-                { 11, 8, 12, 6, 8 },
-                { 6, 10, 10, 8, 11 },
-                { 14, 8, 10, 10, 15 }
+
             }
-        };
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            return null;
+        }
 
         /// <summary>
-        /// Считываемые из БД задачи.
+        /// Преобразовать объект задачи в объект, который будет сериализоваться.
         /// </summary>
-        protected List<Problem> Problems = new List<Problem>();
+        /// <param name="problem">Объект задачи.</param>
+        /// <returns>Объект сериализуемой задачи.</returns>
+        public JSONProblem ToJsonProblem(Problem problem)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            return null;
+        }
+
+        /// <summary>
+        /// Преобразовать объект задачи из сериализуемого объекта задачи.
+        /// </summary>
+        /// <param name="problem">Объект сериализуемой задачи.</param>
+        /// <returns>Объект задачи.</returns>
+        public Problem FromJsonProblem(JSONProblem problem)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            return null;
+        }
 
         /// <summary>
         /// Инициализировать БД, создать её, если ещё не создана, подключиться, если нужно
@@ -47,7 +80,14 @@ namespace TransportationProblem.DBModels.JSON
 
                 var files = Directory.GetFiles(path, "*.json", SearchOption.AllDirectories);
 
-                if (!files.Any()) return false;
+                if (!files.Any())
+                {
+                    Console.WriteLine("БД пуста! Создана задача по умолчанию");
+
+                    AddProblem(GetDefaultProblem());
+
+                    return true;
+                }
             }
             catch (Exception ex)
             {
