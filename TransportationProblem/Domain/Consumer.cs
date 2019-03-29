@@ -19,5 +19,14 @@
         /// Значение полученного объёма, которое в итоге должно стать равным требуемому.
         /// </summary>
         public int Received { get; set; }
+
+        /// <summary>
+        /// Получить строковое представление данного потребителя.
+        /// </summary>
+        /// <returns>Строка с описанием данного потребителя.</returns>
+        public override string ToString()
+        {
+            return $"{Name}({Received}/{Demand})";
+        }
     }
 }
