@@ -1,6 +1,6 @@
 ﻿using TransportationProblem.Domain;
 
-namespace TransportationProblem.DBModels
+namespace TransportationProblem.DBModels.JSON
 {
     /// <summary>
     /// Модель БД, которая для хранения данных использует JSON-файлы.

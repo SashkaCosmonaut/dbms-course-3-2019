@@ -47,7 +47,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DBModels\IDBModel.cs" />
-    <Compile Include="DBModels\JSONModel.cs" />
+    <Compile Include="DBModels\JSON\JSONModel.cs" />
+    <Compile Include="DBModels\JSON\JSONProblem.cs" />
     <Compile Include="Domain\Consumer.cs" />
     <Compile Include="Domain\Problem.cs" />
     <Compile Include="Domain\Route.cs" />
