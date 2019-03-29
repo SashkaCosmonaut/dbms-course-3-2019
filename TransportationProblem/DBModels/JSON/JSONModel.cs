@@ -11,24 +11,6 @@ namespace TransportationProblem.DBModels.JSON
     public class JSONModel : IDBModel
     {
         /// <summary>
-        /// Сформировать задачу по умолчанию.
-        /// </summary>
-        /// <returns>Объект со свойствами задачи по умолчанию.</returns>
-        protected Problem GetDefaultProblem()
-        {
-            try
-            {
-
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-
-            return null;
-        }
-
-        /// <summary>
         /// Преобразовать объект задачи в объект, который будет сериализоваться.
         /// </summary>
         /// <param name="problem">Объект задачи.</param>
@@ -84,7 +66,7 @@ namespace TransportationProblem.DBModels.JSON
                 {
                     Console.WriteLine("БД пуста! Создана задача по умолчанию");
 
-                    AddProblem(GetDefaultProblem());
+                    AddProblem(Problem.GetDefaultProblem());
 
                     return true;
                 }
