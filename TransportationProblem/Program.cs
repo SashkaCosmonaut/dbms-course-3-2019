@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using TransportationProblem.DBModels;
+using TransportationProblem.DBModels.JSON;
 
 namespace TransportationProblem
 {
@@ -15,7 +17,7 @@ namespace TransportationProblem
         /// </summary>
         public static Dictionary<string, IDBModel> DBModels = new Dictionary<string, IDBModel>
         {
-
+            { "JSON", new JSONModel() }
         };
 
         /// <summary>
@@ -27,6 +29,12 @@ namespace TransportationProblem
             var model = ChooseDB();
 
             if (model == null) return;
+
+            if (!model.Init(AskForDBFile()))
+            {
+                Console.WriteLine("Произошла ошибка инициализации БД!");
+                return;
+            }
         }
 
         /// <summary>
@@ -47,6 +55,17 @@ namespace TransportationProblem
 
             Console.WriteLine("Некорректное название БД!");
             return null;
+        }
+
+        /// <summary>
+        /// Спросить пользователя путь до файла с БД.
+        /// </summary>
+        /// <returns>Строка с путём до файла с БД.</returns>
+        public static string AskForDBFile()
+        {
+            Console.WriteLine("Введите путь до файла с БД или папки:");
+
+            return Console.ReadLine();
         }
     }
 }
