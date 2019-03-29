@@ -15,5 +15,15 @@
         /// в данной задаче, образующих матрицу путей.
         /// </summary>
         public Route[] Routes { get; set; }
+
+        /// <summary>
+        /// Множество всех поставщиков в задаче.
+        /// </summary>
+        public Supplier[] Suppliers { get; set; }
+
+        /// <summary>
+        /// Множество всех потребителей в задаче.
+        /// </summary>
+        public Consumer[] Consumers { get; set; }
     }
 }
