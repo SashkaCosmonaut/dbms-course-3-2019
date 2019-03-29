@@ -6,6 +6,11 @@
     public class JSONProblem
     {
         /// <summary>
+        /// Наименование задачи.
+        /// </summary>
+        string Name { get; set; }
+
+        /// <summary>
         /// Массив объемов производства поставщиков.
         /// </summary>
         public int[] Suppliers { get; set; }
