@@ -13,11 +13,11 @@
         /// <summary>
         /// Тебуемый объем поставок для потребителя.
         /// </summary>
-        public double Demand { get; set; }
+        public int Demand { get; set; }
 
         /// <summary>
         /// Значение полученного объёма, которое в итоге должно стать равным требуемому.
         /// </summary>
-        public double Received { get; set; }
+        public int Received { get; set; }
     }
 }

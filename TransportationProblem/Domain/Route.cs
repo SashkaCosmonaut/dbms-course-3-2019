@@ -18,11 +18,11 @@
         /// <summary>
         /// Стоимость передачи единицы продукции по данному пути.
         /// </summary>
-        public double Cost { get; set; }
+        public int Cost { get; set; }
 
         /// <summary>
         /// Объем поставки продукции по данному пути.
         /// </summary>
-        public double Volume { get; set; }
+        public int Volume { get; set; }
     }
 }
