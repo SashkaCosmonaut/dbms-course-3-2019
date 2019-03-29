@@ -14,5 +14,10 @@
         /// Тебуемый объем поставок для потребителя.
         /// </summary>
         public double Demand { get; set; }
+
+        /// <summary>
+        /// Значение полученного объёма, которое в итоге должно стать равным требуемому.
+        /// </summary>
+        public double Received { get; set; }
     }
 }
