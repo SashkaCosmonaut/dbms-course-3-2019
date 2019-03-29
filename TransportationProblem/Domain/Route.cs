@@ -24,5 +24,14 @@
         /// Объем поставки продукции по данному пути.
         /// </summary>
         public int Volume { get; set; }
+
+        /// <summary>
+        /// Получить строковое представление данного пути.
+        /// </summary>
+        /// <returns>Строка с описанием данного пути.</returns>
+        public override string ToString()
+        {
+            return $"{Supplier} {Consumer}: {Volume}, {Cost}";
+        }
     }
 }
