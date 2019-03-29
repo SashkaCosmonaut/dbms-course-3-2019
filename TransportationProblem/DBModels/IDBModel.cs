@@ -8,6 +8,11 @@ namespace TransportationProblem.DBModels
     public interface IDBModel
     {
         /// <summary>
+        /// Путь до базы данных.
+        /// </summary>
+        string Path { get; set; }
+
+        /// <summary>
         /// Инициализировать БД, создать её, если ещё не создана, подключиться, если нужно
         /// и наполнить данными по умолчанию, если она была создана.
         /// </summary>

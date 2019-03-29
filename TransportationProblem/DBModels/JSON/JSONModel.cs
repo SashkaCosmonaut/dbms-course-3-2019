@@ -8,6 +8,11 @@ namespace TransportationProblem.DBModels.JSON
     public class JSONModel : IDBModel
     {
         /// <summary>
+        /// Путь до базы данных - до папки с JSON-файлами.
+        /// </summary>
+        public string Path { get; set; }
+
+        /// <summary>
         /// Инициализировать БД, создать её, если ещё не создана, подключиться, если нужно
         /// и наполнить данными по умолчанию, если она была создана.
         /// </summary>
