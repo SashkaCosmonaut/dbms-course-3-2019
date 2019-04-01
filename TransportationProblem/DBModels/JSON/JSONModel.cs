@@ -93,7 +93,32 @@ namespace TransportationProblem.DBModels.JSON
         {
             try
             {
+                var result = new Problem
+                {
+                    Name = problem.Name,
+                    Consumers = problem.Consumers.Select(q => new Consumer { Name = "B", Demand = q }).ToArray(),
+                    Suppliers = problem.Suppliers.Select(q => new Supplier { Name = "A", Capacity = q}).ToArray(),
+                };
 
+                var height = problem.Suppliers.Length;
+                var width = problem.Consumers.Length;
+
+                var routes = new Route[height * width];
+
+                for (int i = 0; i < height; i++)
+                    for (int j = 0; j < width; j++)
+                    {
+                        routes[i * width + j] = new Route
+                        {
+                            Supplier = result.Suppliers[i],
+                            Consumer = result.Consumers[j],
+                            Cost = problem.Costs[i, j]
+                        };
+                    }
+
+                result.Routes = routes;
+
+                return result;
             }
             catch (Exception ex)
             {
@@ -109,7 +134,18 @@ namespace TransportationProblem.DBModels.JSON
         /// <returns>Массив имеющихся задач.</returns>
         public Problem[] GetProblems()
         {
-            return new Problem[] { };
+            try
+            {
+                return Directory.GetFiles(DirPath, "*.json", SearchOption.AllDirectories)
+                    .Select(filename => FromJsonProblem(JsonConvert.DeserializeObject<JSONProblem>(File.ReadAllText(filename))))
+                    .ToArray();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+
+                return new Problem[] { };
+            }           
         }
 
         /// <summary>
